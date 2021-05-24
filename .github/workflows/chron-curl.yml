@@ -11,11 +11,10 @@ jobs:
       - name: curl
         id: curlDownDet
         run: |
-          status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body))
+          status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body)) >> GITHUB_ENV
           echo "RESPONSE::: $status_code"
       - name: value out of scope
-        run: |
-          echo ${{ verify.steps.curlDownDet.status_code }}
+        run: echo ${{ env.status_code }}
       - name: DownIsDown
         if: steps.curlDownDet.status_code != 200 
         run: echo ${{steps.curlDownDet.status_code}}
