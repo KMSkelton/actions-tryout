@@ -11,8 +11,8 @@ jobs:
       - name: curl
         id: curlDownDet
         run: |
-          status_code=$(curl -sL -w  "%(http_code)\\n" "https://downdetector.com" -o/dev/null)
-          echo "RESPONSE:::" ${{ steps.curlDownDet }}
+          status_code=$(curl -sL -w  "%(http_code)\\n" "https://downdetector.com" -o >(cat >tmp/curl-body))
+          echo "RESPONSE::: $status_code"
       - name: DownIsDown
         if: steps.curlDownDet.status_code != 200 
         run: echo ${{steps.curlDownDet.status_code}}
