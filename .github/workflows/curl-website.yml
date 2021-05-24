@@ -9,10 +9,9 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - name: github Login
-        id: githubLogin
-      # uses a pre-built Github Official package called "http-client"
+      - name: HTTP Request Action
         uses: fjogeleit/http-request-action@v1.8.0
+        id: githubLogin
         with:
           url: 'https://github.com'
       - name: show response
