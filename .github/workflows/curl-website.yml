@@ -16,6 +16,13 @@ jobs:
           url: 'https://github.com/login'
       - name: show response
         run: echo ${{ steps.githubLogin.outputs.response}}
+      - name: HTTP Request Action
+        uses: fjogeleit/http-request-action@v1.8.0
+        id: googleCheck
+        with:
+          url: 'https://google.com'
+      - name: show response
+        run: echo ${{ steps.googleCheck.outputs.response}}
 
 
 
