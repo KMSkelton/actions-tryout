@@ -1,4 +1,4 @@
-name: Curl Github Login Page
+name: Curl Google Home Page
 on: 
   push:
     branches: [curl-website]
@@ -14,24 +14,3 @@ jobs:
         run: |
           curl -i https://google.com
           echo ${{ steps.curlGoogle }}
-
-
-      # - name: HTTP Request Action
-      #   uses: actions/http-client@1.0.11
-      #   id: githubLogin
-      #   with:
-      #     url: 'https://github.com/login'
-      # - name: show response
-      #   run: echo ${{ steps.githubLogin.outputs.response}}
-      # - name: HTTP Request Action
-      #   uses: actions/http-client@1.0.11
-      #   if: always()
-      #   id: googleCheck
-      #   with:
-      #     url: 'https://google.com'
-      # - name: show response
-      #   run: echo ${{ steps.googleCheck.outputs.response}}
-
-
-
-
