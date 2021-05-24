@@ -1,0 +1,13 @@
+name: Simple Github Action
+on: status
+jobs:
+  run-shell-command: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: say hello
+        run: echo "Hello World"
+      - name: Environments Check
+        run: |
+          node -v
+          npm -v
+
