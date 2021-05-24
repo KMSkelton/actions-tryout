@@ -11,7 +11,7 @@ jobs:
       - name: curl
         id: curlDownDet
         run: |
-          status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body)) >> GITHUB_ENV
+          status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body)) >> $GITHUB_ENV
           echo "RESPONSE::: $status_code"
       - name: value out of scope
         run: echo "${{ env.status_code }}"
