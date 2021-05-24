@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: githubLogin
       # uses a pre-built Github Official package called "http-client"
-        uses: actions/http-client@main
+        uses: fjogeleit/http-request-action@master
         with:
-          url: https://github.com 
+          url: 'https://github.com'
       - name: show response
         run: echo ${{ steps.githubLogin.outputs.response}}
 
