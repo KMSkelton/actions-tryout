@@ -10,10 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: curl
-        run: |
-          curl 
-          --i
-          -- url: https://google.com
+        run: curl -i https://google.com
 
 
       # - name: HTTP Request Action
