@@ -12,8 +12,8 @@ jobs:
         id: curlDownDet
         run: echo "::set-output name=status::$(curl -i -o/dev/null "%(http_code)\\n" https://downdetector.com"
       - name: NotDown
-        if: curlDownDet.status != 200 
+        if: steps.curlDownDet.status != 200 
         run: echo "Down Detector is Down!!"
       - name: DownIsDown
-        if: curlDownDet.status == 200 
+        if: steps.curlDownDet.status == 200 
         run: echo "All is Well"
