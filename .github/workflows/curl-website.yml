@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: curl
-        uses: curl https://google.com
+        run: |
+          curl 
+          -- url: https://google.com
+          echo ${{ $CODE }}
+
+
       # - name: HTTP Request Action
       #   uses: actions/http-client@1.0.11
       #   id: githubLogin
