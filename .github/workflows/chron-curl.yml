@@ -15,8 +15,7 @@ jobs:
           echo "RESPONSE::: $status_code"
       - name: value out of scope
         run: |
-          body = "$(cat /tmp/curl_body)"
-          echo $body
+          echo ${{ verify.steps.curlDownDet.status_code }}
       - name: DownIsDown
         if: steps.curlDownDet.status_code != 200 
         run: echo ${{steps.curlDownDet.status_code}}
