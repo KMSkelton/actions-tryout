@@ -1,9 +1,16 @@
-name: Check if Downdetector is down
-on: 
+name: Check if CURL and downdetector are down
   push:
     branches: [chron-curl]
   pull_request:
     branches: [chron-curl]
+  # Let's also make this a chron job
+  on:
+    schedule:
+      # Check every Monday at 1PM (server time)
+      - chron: "0 13 * * 1"
+      # Check every two minutes (leave this commented out - added just for testing)
+      - chron: "2 * * * *"
+# multiple jobs will run in parallel on separate VMs
 jobs:
   # curl.se responds with a 200 when sending a basic curl request
   curl-se:
