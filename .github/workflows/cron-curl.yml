@@ -1,9 +1,9 @@
 name: Check if CURL and downdetector are down
 on:
   push:
-    branches: [chron-curl]
+    branches: [cron-curl]
   pull_request:
-    branches: [chron-curl]
+    branches: [cron-curl]
   # Let's also make this a chron job
   schedule:
     # Check every Monday at 1PM (server time)
