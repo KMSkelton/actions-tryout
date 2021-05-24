@@ -12,7 +12,7 @@ jobs:
       - name: curl
         run: |
           curl 
-          -i
+          --i
           -- url: https://google.com
 
 
