@@ -11,7 +11,7 @@ jobs:
       - name: curl
         id: curlDownDet
         run: |
-          echo "status_code=$(curl -L -w  "%{http_code}" "https://downdetector.com/search/?q=google" -o /dev/null)" >> $GITHUB_ENV
+          echo "status_code=$(curl -L -w -i  "%{http_code}" "https://downdetector.com/search/?q=google" -o /dev/null)" >> $GITHUB_ENV
       - name: value
         run: echo "${{ env.status_code }}"
       - name: DownIsDown
