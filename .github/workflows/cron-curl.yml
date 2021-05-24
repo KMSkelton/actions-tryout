@@ -8,8 +8,12 @@ on:
   schedule:
     # Check every Monday at 1PM (server time)
     - cron: '0 13 * * 1'
-    # Check every minute (leave this commented out - added just for testing)
-    - cron: '0-59 * * * *'
+    # Check every 5 minutes (leave this commented out - added just to comment
+    # that cron jobs are at the whim of Github. They run crons as they have machines 
+    # available. Some users report 5 minute jobs happeneing twice or thrice an hour
+    # others report that they get 17 runs but in the middle of the hour in quick
+    # succession. Do not rely on cron jobs.
+    # - cron: '5 * * * *'
 # multiple jobs will run in parallel on separate VMs
 jobs:
   # curl.se responds with a 200 when sending a basic curl request
