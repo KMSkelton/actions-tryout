@@ -16,8 +16,8 @@ jobs:
       - name: value out of scope
         run: echo "${{ env.status_code }}"
       - name: DownIsDown
-        if: $env.status_code != 200 
+        if: env.status_code != 200 
         run: echo "Looks like there's a problem - $env.status_code"
       - name: Not Down
-        if: s$env.status_code == 200 
+        if: env.status_code == 200 
         run: echo "All is Well"
