@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: HTTP Request Action
-        uses: fjogeleit/http-request-action@v1.8.0
+        uses: actions/http-client@1.0.11
         id: githubLogin
         with:
           url: 'https://github.com/login'
       - name: show response
         run: echo ${{ steps.githubLogin.outputs.response}}
       - name: HTTP Request Action
-        uses: fjogeleit/http-request-action@v1.8.0
+        uses: actions/http-client@1.0.11
         if: always()
         id: googleCheck
         with:
