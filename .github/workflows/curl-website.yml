@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: githubLogin
       # uses a pre-built Github Official package called "http-client"
-        uses: actions/http-client
+        uses: actions/http-client@1.0.11
         with:
           url: https://github.com 
       - name: show response
