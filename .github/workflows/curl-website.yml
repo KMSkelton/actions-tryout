@@ -13,7 +13,7 @@ jobs:
         id: curlGoogle
         run: |
           curl -i https://google.com
-          echo "RESPONSE" ${{ steps.curlGoogle.outputs }}
+          echo "RESPONSE" ${{ steps.curlGoogle }}
 
 
       # - name: HTTP Request Action
