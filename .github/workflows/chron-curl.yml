@@ -7,9 +7,9 @@ on:
   # Let's also make this a chron job
   schedule:
     # Check every Monday at 1PM (server time)
-    - cron: "0 13 * * 1"
-    # Check every two minutes (leave this commented out - added just for testing)
-    - cron: "2 * * * *"
+    - cron: '0 13 * * 1'
+    # Check every minute (leave this commented out - added just for testing)
+    - cron: '1 * * * *'
 # multiple jobs will run in parallel on separate VMs
 jobs:
   # curl.se responds with a 200 when sending a basic curl request
