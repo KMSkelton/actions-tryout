@@ -16,9 +16,9 @@ jobs:
           url: 'https://github.com/login'
       - name: show response
         run: echo ${{ steps.githubLogin.outputs.response}}
-      - if: always()
       - name: HTTP Request Action
         uses: fjogeleit/http-request-action@v1.8.0
+        if: always()
         id: googleCheck
         with:
           url: 'https://google.com'
