@@ -20,7 +20,7 @@ jobs:
         run: echo "status_code=$(curl -sL -w  "%{http_code}" "https://curl.se" -o >(cat >/tmp/curl_body))" >> $GITHUB_ENV
       - name: value
         run: echo "${{ env.status_code }}"
-      - name: DownIsDown
+      - name: Curl is down
         if: env.status_code != 200 
         run: echo "Looks like there's a problem - ${{env.status_code}}"
       - name: Not Down
@@ -34,7 +34,7 @@ jobs:
         run: echo "status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body))" >> $GITHUB_ENV
       - name: value
         run: echo "${{ env.status_code }}"
-      - name: DownIsDown
+      - name: Downdetector is down 
         if: env.status_code != 200 
         run: echo "Looks like there's a problem - ${{env.status_code}}"
       - name: Not Down
