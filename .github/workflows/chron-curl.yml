@@ -5,13 +5,26 @@ on:
   pull_request:
     branches: [chron-curl]
 jobs:
-  verify:
+  # curl.se responds with a 200 when sending a basic curl request
+  curl-se:
     runs-on: ubuntu-latest
     steps:
       - name: curl
-        id: curlDownDet
-        run: |
-          echo "status_code=$(curl -sL -w  "%{http_code}" "https://curl.se" -o >(cat >/tmp/curl_body))" >> $GITHUB_ENV
+        run: echo "status_code=$(curl -sL -w  "%{http_code}" "https://curl.se" -o >(cat >/tmp/curl_body))" >> $GITHUB_ENV
+      - name: value
+        run: echo "${{ env.status_code }}"
+      - name: DownIsDown
+        if: env.status_code != 200 
+        run: echo "Looks like there's a problem - ${{env.status_code}}"
+      - name: Not Down
+        if: env.status_code == 200 
+        run: echo "All is Well"
+  # Down Detector sends a 403 when we try to send a basic curl request
+  downdetector:
+    runs-on: ubuntu-latest
+    steps:
+      - name: curl
+        run: echo "status_code=$(curl -sL -w  "%{http_code}" "https://downdetector.com" -o >(cat >/tmp/curl_body))" >> $GITHUB_ENV
       - name: value
         run: echo "${{ env.status_code }}"
       - name: DownIsDown
