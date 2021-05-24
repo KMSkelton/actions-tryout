@@ -10,5 +10,5 @@ jobs:
         run: |
           node -v
           npm -v
-          curl -v
+          curl --version
 
