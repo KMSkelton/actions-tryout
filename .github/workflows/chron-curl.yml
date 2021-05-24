@@ -1,9 +1,9 @@
 name: Check if Downdetector is down
 on: 
   push:
-    branches: [curl-website]
+    branches: [chron-curl]
   pull_request:
-    branches: [curl-website]
+    branches: [chron-curl]
 jobs:
   verify:
     runs-on: ubuntu-latest
