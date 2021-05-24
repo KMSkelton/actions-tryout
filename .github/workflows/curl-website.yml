@@ -1,0 +1,22 @@
+name: Curl Github Login Page
+on: 
+  push:
+    branches: [curl-website]
+  pull_request:
+    branches: [curl-website]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: githubLogin
+      # uses a pre-built Github Official package called "http-client"
+        uses: actions/http-client@v1
+        with:
+          url: https://github.com 
+      - name: show response
+        run: echo ${{ steps.githubLogin.outputs.response}}
+
+
+
+
