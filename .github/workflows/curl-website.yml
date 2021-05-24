@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: curl
-        run: curl -i https://google.com
+        id: curlGoogle
+        run: |
+          curl -i https://google.com
+          echo ${{ steps.curlGoogle.outputs.response }}
 
 
       # - name: HTTP Request Action
