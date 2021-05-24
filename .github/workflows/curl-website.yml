@@ -12,8 +12,8 @@ jobs:
       - name: curl
         run: |
           curl 
+          -i
           -- url: https://google.com
-          echo ${{ $CODE }}
 
 
       # - name: HTTP Request Action
